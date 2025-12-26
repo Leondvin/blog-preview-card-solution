@@ -1,0 +1,155 @@
+:root {
+    /* colors */
+    --white: hsl(0, 0%, 100%);
+    --yellow: hsl(47, 88%, 63%);
+    --grey-500: hsl(0, 0%, 42%);
+    --grey-950: hsl(0, 0%, 7%);
+    /* font */
+    --font-family-sans: "Figtree", sans-serif;
+    --line-height-base: 150%;  /* 1.5 */
+    --font-size-xl: 1.5rem;  /* 24px */
+    --font-size-l: 1.25rem;  /* 20px */
+    --font-size-base: 1rem;  /* 16px */
+    --font-size-sm: .875rem;  /* 14px */
+    --font-size-xs: .75rem;  /* 12px */
+    --font-weight-extra-bold: 800;
+    --font-weight-medium: 500;
+    /* sizing */
+    --card-gap: 1.5rem;  /* 24px */
+    --card-padding: 1.5rem;  /* 24px */
+    --card-width-mobile: 20rem;  /* 320px */
+    --card-width-desktop: 24rem;  /* 384px */
+    --card-border-radius: 1.25rem;  /* 20px */
+    --card-box-shadow: 0.5rem 0.5rem 0 0;
+    --card-box-shadow-hover: 1rem 1rem 0 0;
+    --card-border: 1px solid var(--grey-950);
+    --banner-image-height: 12.5rem;  /* 200px */
+    --banner-image-border-radius: .625rem;  /* 10px */
+    --status-padding: .25rem .75rem;  /* 4px 12px */
+    --status-border-radius: .25rem;  /* 4px */
+    --text-container-gap: .75rem;  /* 12px */
+    --author-container-gap: .75rem;  /* 12px */
+    --author-image-width: 2rem;  /* 32px */
+    /* transition */
+    --card-transition: box-shadow 0.2s ease;
+    --course-name-transition: color 0.2s ease;
+}
+/* root element */
+html {
+    font-size: 16px;  /* forces the default font size, root element's font size, to be 16px */
+}
+body {
+    font-family: var(--font-family-sans);
+    letter-spacing: 0;
+    line-height: var(--line-height-base);
+    background-color: var(--yellow);
+    color: var(--grey-950);
+}
+.text-medium {
+    font-weight: var(--font-weight-medium);
+}
+.text-extra-bold {
+    font-weight: var(--font-weight-extra-bold);
+}
+.text-size-1 {
+    font-size: var(--font-size-xl);
+}
+.text-size-2 {
+    font-size: var(--font-size-l);
+}
+.text-size-3 {
+    font-size: var(--font-size-base);
+}
+.text-size-4 {
+    font-size: var(--font-size-sm);
+}
+.text-size-5 {
+    font-size: var(--font-size-xs);
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+@supports (min-height: 100dvh) {
+    main {
+        min-height: 100dvh;
+    }
+}
+p, h1, h2{
+    margin: 0;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+    padding: var(--card-padding);
+    width: var(--card-width-mobile);
+    background-color: var(--white);
+    border: var(--card-border);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    box-sizing: border-box;
+    transition: var(--card-transition);
+}
+.card:hover {
+    box-shadow: var(--card-box-shadow-hover);
+}
+.banner-img {
+    background-image: url(./blog-preview-card/blog-preview-card-main/assets/images/illustration-article.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: var(--banner-image-height);
+    border-radius: var(--banner-image-border-radius);
+}
+.status {
+    padding: var(--status-padding);
+    background-color: var(--yellow);
+    border-radius: var(--status-border-radius);
+    display: inline-block;  /* fallback for IE */
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--text-container-gap);
+}
+.course-name {
+    cursor: pointer;
+    transition: var(--course-name-transition);
+}
+.course-name:hover {
+    color: var(--yellow);
+}
+.course-explanation {
+    color: var(--grey-500);
+}
+.author-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: var(--author-container-gap);
+}
+.author-image {
+    width: var(--author-image-width);
+    height: auto;
+}
+@media only screen and (min-width: 1440px) {
+    .card {
+        width: var(--card-width-desktop);
+    }
+    .status.text-size-5, .publish-date.text-size-5 {
+        font-size: var(--font-size-sm);
+    }
+    .course-name.text-size-2 {
+        font-size: var(--font-size-xl);
+    }
+    .course-explanation.text-size-4 {
+        font-size: var(--font-size-base);
+    }
+}
